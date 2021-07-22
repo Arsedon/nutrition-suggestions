@@ -140,10 +140,10 @@ window.addEventListener('DOMContentLoaded', function() {
     }
     window.addEventListener('scroll', showModalByScroll);
 
-    //Меню с карточками
+    //Меню с карточками вариант с получением значений меню с сервера
 
     class Menu {
-        constructor(img, altImg, title, description, price, parentSelector, ...classes){
+        constructor(img, altImg, title, description, price, ...classes){
             this.img = img;
             this.altImg = altImg;
             this.title = title;
@@ -151,7 +151,6 @@ window.addEventListener('DOMContentLoaded', function() {
             this.price = price;
             this.currencyValue = 74; 
             this.convertationCurrency();
-            this.parent = document.querySelector(parentSelector); 
             this.classes = classes;    
         }
 
@@ -179,38 +178,9 @@ window.addEventListener('DOMContentLoaded', function() {
                         <div class="menu__item-total"><span>${this.price}</span> руб/день</div>
                 </div>`
             ;
-            this.parent.append(element);
+            document.querySelector('.menu .container').append(element);
         }
     }
-    
-    new Menu(
-        "img/tabs/vegy.jpg",
-        "vegy",
-        'Меню "Фитнес"',
-        'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
-        9,
-        '.menu .container',
-        'menu__item'
-    ).render();
-
-    new Menu(
-        "img/tabs/elite.jpg",
-        "elite",
-        'Меню “Премиум”',
-        'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
-        24,
-        '.menu .container'
-    ).render();
-
-    new Menu(
-        "img/tabs/post.jpg",
-        "post",
-        'Меню "Постное"',
-        'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
-        11,
-        '.menu .container'
-    ).render();
-
     //Forms 
 
     class FoodRequest {
@@ -243,7 +213,7 @@ window.addEventListener('DOMContentLoaded', function() {
         return await res.json();
     }
 
-/*    const getData = async (url) => {
+    const getData = async (url) => {
         const res = await fetch(url,);
         if(!res.ok){
             new Error(`Could not fetch data from ${url}, status: ${res.status}`);
@@ -254,15 +224,9 @@ window.addEventListener('DOMContentLoaded', function() {
     const res = getData('http://localhost:8080/menu')
         .then(data => {
             data.forEach(({img, altImg, title, description, price}) => {
-                console.log(img);
-                console.log(altImg);
-                console.log(title);
-                console.log(description);
-                console.log(price);
                 new Menu(img, altImg, title, description, price).render();
             })
         });
-*/
 
     function bindPostData(form){
         form.addEventListener('submit', (e) => {
