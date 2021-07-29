@@ -228,6 +228,26 @@ window.addEventListener('DOMContentLoaded', function() {
             })
         });
 
+/*
+    function createData(data){
+        data.forEach((({img, altImg, title, description, price}) => {
+            const element = document.createElement('.menu__item');
+            element.innerHTML = `
+            <img src=${img} alt="${altImg}">
+            <h3 class="menu__item-subtitle">${title}"</h3>
+            <div class="menu__item-descr">${description}</div>
+            <div class="menu__item-divider"></div>
+            <div class="menu__item-price">
+                <div class="menu__item-cost">Цена:</div>
+                <div class="menu__item-total"><span>${price}</span> руб/день</div>
+            </div>`;
+            
+            document,querySelector('.menu .container').append(element);
+        
+        })
+    }
+ */
+
     function bindPostData(form){
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -379,5 +399,5 @@ window.addEventListener('DOMContentLoaded', function() {
             });
         }
         getResultCcal();
-    });  
+    });
 });
