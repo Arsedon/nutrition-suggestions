@@ -489,19 +489,19 @@ window.addEventListener('DOMContentLoaded', function() {
 
     function changeOffsetByButton(isNext){
         if(isNext){
-            if(offset == +width.slice(0, width.length - 2) * (slides.length-1)){
+            if(offset == +width.replace(/px/g, "") * (slides.length-1)){
                 offset = 0;
                 slideIndex = 1;
             } else {
-                offset += +width.slice(0, width.length - 2);
+                offset += +width.replace(/px/g, "");
                 slideIndex++;
             }
         } else {
             if(offset == 0){
-                offset = +width.slice(0, width.length - 2) * (slides.length-1);
+                offset = +width.replace(/px/g, "") * (slides.length-1);
                 slideIndex = 4;
             } else {
-                offset -= +width.slice(0, width.length - 2);
+                offset -= +width.replace(/px/g, "");
                 slideIndex--;
             }
         }
@@ -510,7 +510,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     function calculateAndMoveOffsetToMoveByDot (dotIndex) {
         slideIndex = dotIndex;
-        offset = +width.slice(0, width.length - 2) * (dotIndex - 1);
+        offset = +width.replace(/px/g, "") * (dotIndex - 1);
         slideFields.style.transform = `translateX(-${offset}px)`;
     }
     
@@ -530,6 +530,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
 
 /*
+    //легкая навигация
+    
     showCurrentSlide(slideIndex);
     checkNumberOfSlidesPresenting();
 
