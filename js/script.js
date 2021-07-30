@@ -489,19 +489,19 @@ window.addEventListener('DOMContentLoaded', function() {
 
     function changeOffsetByButton(isNext){
         if(isNext){
-            if(offset == +width.replace(/px/g, "") * (slides.length-1)){
+            if(offset == parseWidthToNumber(width) * (slides.length-1)){
                 offset = 0;
                 slideIndex = 1;
             } else {
-                offset += +width.replace(/px/g, "");
+                offset += parseWidthToNumber(width);
                 slideIndex++;
             }
         } else {
             if(offset == 0){
-                offset = +width.replace(/px/g, "") * (slides.length-1);
+                offset = parseWidthToNumber(width) * (slides.length-1);
                 slideIndex = 4;
             } else {
-                offset -= +width.replace(/px/g, "");
+                offset -= parseWidthToNumber(width);
                 slideIndex--;
             }
         }
@@ -510,7 +510,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     function calculateAndMoveOffsetToMoveByDot (dotIndex) {
         slideIndex = dotIndex;
-        offset = +width.replace(/px/g, "") * (dotIndex - 1);
+        offset = parseWidthToNumber(width) * (dotIndex - 1);
         slideFields.style.transform = `translateX(-${offset}px)`;
     }
     
@@ -526,6 +526,10 @@ window.addEventListener('DOMContentLoaded', function() {
         if(slides.length < 10){
             current.textContent = `0${slideIndex}`
         } else current.textContent = slideIndex;
+    }
+
+    function parseWidthToNumber(width){
+        return +width.replace(/\D/g, '');
     }
 
 
