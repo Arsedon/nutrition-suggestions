@@ -1,29 +1,25 @@
-# README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+**This project is simple work of front-end development by native JS.**
 
-### What is this repository for? ###
+CSS styles was taking by JS course from Udemy.)
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+**How do you get set up?**
 
-### How do I get set up? ###
+1. Configuration
+  Before packajing project you need to configure webpack, but now default values of **webpack.config.js** could help you to package project without configure.
+  But if you want to configure, let's use this guide https://webpack.js.org/guides/getting-started/#using-a-configuration
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+2. for use and run this app, user could packajing project by webpack. For it work, you need to use this command:
+npm init -y (for init npm project in your local machine)
+npm install webpack webpack-cli --save-dev (for packaging project)
 
-### Contribution guidelines ###
+3.Dependencies
+  in this project dependencies exist just between modules 
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+4.Database configuration
+  Some data for using this project is information about menu card.
+  In project you may to use three ways of data getting:
+  1) by static realization of data from script of cards.js
+  2) use the java project which store menu data in H2 DB
+  3) use and configure JSON server(but you can configure it yourself)
+  
