@@ -1,5 +1,7 @@
-function forms() {
-    import {openModal} from './window';
+import {openModal, closeModalWindow} from './window';
+import {postData} from '../services/service'
+
+function forms(modelTimerId) {
 
     class FoodRequest {
         constructor(name, phoneNumber) {
@@ -19,17 +21,6 @@ function forms() {
     forms.forEach(f => {
         bindPostData(f);
     });
-
-    const postData = async (url, data) => {
-        const res = await fetch(url, {
-            method: 'POST',
-            body: data,
-            headers: {
-                'Access-Control-Allow-Origin': "*" 
-            }
-        });
-        return await res.json();
-    }
 
 /*    const getData = async (url) => {
         const res = await fetch(url,);
@@ -95,7 +86,7 @@ function forms() {
         const previousModalDialog = document.querySelector('.modal__dialog');
         previousModalDialog.classList.add('hide');
 
-        openModal();
+        openModal('.modal', modelTimerId);
 
         const thanksModal = document.createElement('div');
         thanksModal.classList.add('modal__dialog');
@@ -115,10 +106,10 @@ function forms() {
 
             previousModalDialog.classList.add('show');
             previousModalDialog.classList.remove('hide');
-
-            openModal();
-        }, 1000)
+            
+            closeModalWindow('.modal');
+        }, 5000)
     }
 }
 
-module.exports = forms;
+export default forms;
