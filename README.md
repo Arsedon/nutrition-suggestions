@@ -20,6 +20,6 @@ npm install webpack webpack-cli --save-dev (for packaging project)
   Some data for using this project is information about menu card.
   In project you may to use three ways of data getting:
   1) by static realization of data from script of cards.js
-  2) use the java project which store menu data in H2 DB
+  2) use the java project which store menu data in H2 DB https://github.com/Arsedon/menu-data-storage
   3) use and configure JSON server(but you can configure it yourself)
   
