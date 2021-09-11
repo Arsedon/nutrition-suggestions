@@ -19,7 +19,7 @@ function closeModalWindow(modalSelector){
     document.body.style.overflow = '';
 }
 
-function window(triggerSelector, modalSelector, modelTimerId) {
+function modal(triggerSelector, modalSelector, modelTimerId) {
     
     const modalTrigger = document.querySelectorAll(triggerSelector),
         modal = document.querySelector(modalSelector);
@@ -49,5 +49,5 @@ function window(triggerSelector, modalSelector, modelTimerId) {
     window.addEventListener('scroll', showModalByScroll);
 }
 
-export default window;
+export default modal;
 export {openModal, closeModalWindow};

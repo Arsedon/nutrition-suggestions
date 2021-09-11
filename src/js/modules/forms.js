@@ -1,4 +1,4 @@
-import {openModal, closeModalWindow} from './window';
+import {openModal, closeModalWindow} from './modal';
 import {postData} from '../services/service'
 
 function forms(modelTimerId) {
